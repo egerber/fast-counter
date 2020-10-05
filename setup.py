@@ -294,10 +294,6 @@ setup(
     description=SHORTDESC,
     long_description=DESC,
 
-    license="MIT",
-
-    platforms=["Linux"],
-
     # See
     #    https://pypi.python.org/pypi?%3Aaction=list_classifiers
     #
@@ -309,7 +305,7 @@ setup(
                  "Environment :: Console",
                  "Intended Audience :: Developers",
                  "Intended Audience :: Science/Research",
-                 "License :: MIT",  # not a standard classifier; CHANGE THIS
+                 "License :: OSI Approved :: MIT License",
                  "Operating System :: POSIX :: Linux",
                  "Programming Language :: Cython",
                  "Programming Language :: Python",
