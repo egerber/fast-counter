@@ -1,4 +1,4 @@
-#FastCounter
+# FastCounter
 
 ## Introdcution
 FastCounter is a library that assimilates the behavior of <code>collections.Counter</code> but introduces 
