@@ -44,3 +44,14 @@ class TestShortTermMemory(unittest.TestCase):
 
         counter.update([1, 1, 1, 1, 1, 2, 2, 2, 2, 2])
         self.assertEqual(counter.most_common(2), [])
+
+    def test_max_items_shortterm_memory(self):
+        counter = FastCounter(consolidation_frequency=1,
+                              consolidation_threshold=1000000,
+                              bucket_size=1,
+                              max_items_shortterm_memory=5)
+
+        counter.update([1, 2, 3, 4, 5])
+        self.assertEqual(counter.get_size_shortterm_memory(), 5)
+        counter.update([6, 7, 8, 9, 10])
+        self.assertEqual(counter.get_size_shortterm_memory(), 5)

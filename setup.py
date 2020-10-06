@@ -301,8 +301,7 @@ setup(
     #
     # Remember to configure these appropriately for your project, especially license!
     #
-    classifiers=["Development Status :: 4 - Beta",
-                 "Environment :: Console",
+    classifiers=["Environment :: Console",
                  "Intended Audience :: Developers",
                  "Intended Audience :: Science/Research",
                  "License :: OSI Approved :: MIT License",
@@ -312,16 +311,13 @@ setup(
                  "Programming Language :: Python :: 2",
                  "Programming Language :: Python :: 2.7",
                  "Programming Language :: Python :: 3",
-                 "Programming Language :: Python :: 3.4",
-                 "Topic :: Scientific/Engineering",
-                 "Topic :: Scientific/Engineering :: Mathematics",
-                 "Topic :: Software Development :: Libraries",
-                 "Topic :: Software Development :: Libraries :: Python Modules"
+                 "Programming Language :: Python :: 3.4"
                  ],
 
     # See
     #    http://setuptools.readthedocs.io/en/latest/setuptools.html
     #
+    license="MIT",
     setup_requires=["cython", "numpy"],
     install_requires=["numpy"],
     provides=["fastcounter"],

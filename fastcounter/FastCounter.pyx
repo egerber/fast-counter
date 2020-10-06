@@ -7,7 +7,7 @@ logging.basicConfig(filename='memory.log', level=logging.DEBUG)
 DEFAULT_CONSOLIDATION_THRESHOLD = 5  # How often does the pattern need to be detected in order to be placed into Long Term Memory
 DEFAULT_BUCKET_SIZE = 5
 DEFAULT_CONSOLIDATION_FREQUENCY = 1000
-
+DEFAULT_MAX_ITEMS = 1000000
 DEBUG = False
 
 # TODO set upper limit for number of items in long term memory
@@ -18,17 +18,20 @@ cdef class FastCounter:
     cdef int _consolidation_frequency
     cdef int deletions
     cdef int threshold
+    cdef int _max_items_shortterm_memory
 
     def __init__(self,
                  int consolidation_frequency=DEFAULT_CONSOLIDATION_FREQUENCY,
                  int consolidation_threshold=DEFAULT_CONSOLIDATION_THRESHOLD,
-                 bucket_size=DEFAULT_BUCKET_SIZE):
+                 int bucket_size=DEFAULT_BUCKET_SIZE,
+                 int max_items_shortterm_memory=DEFAULT_MAX_ITEMS):
 
         self.counter = Counter()
         self.stm = ShortTermMemory(threshold=consolidation_threshold,
                                    bucket_size=bucket_size)  #behaves like collections.Counter object
         self.deletions = 0
 
+        self._max_items_shortterm_memory = max_items_shortterm_memory
         self._consolidation_frequency = consolidation_frequency
         self._iterations = 0
 
@@ -61,6 +64,13 @@ cdef class FastCounter:
         for element, count in threshold_elements:
             self.counter[element] = count
         self.stm.remove_threshold_elements()
+
+        count_overflow_items = len(self.stm) - self._max_items_shortterm_memory
+        if count_overflow_items > 0:
+            self.stm.remove_least_common(count_overflow_items)
+
+    def get_size_shortterm_memory(self):
+        return len(self.stm)
 
     def __len__(self):
         return len(self.counter)

@@ -853,6 +853,7 @@ struct __pyx_obj_11fastcounter_11FastCounter_FastCounter {
   int _consolidation_frequency;
   int deletions;
   int threshold;
+  int _max_items_shortterm_memory;
 };
 
 
@@ -1271,6 +1272,7 @@ static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_ShortTermMemory[] = "ShortTermMemory";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
+static const char __pyx_k_DEFAULT_MAX_ITEMS[] = "DEFAULT_MAX_ITEMS";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_DEFAULT_BUCKET_SIZE[] = "DEFAULT_BUCKET_SIZE";
 static const char __pyx_k_remove_least_common[] = "remove_least_common";
@@ -1280,17 +1282,19 @@ static const char __pyx_k_consolidation_threshold[] = "consolidation_threshold";
 static const char __pyx_k_fastcounter_FastCounter[] = "fastcounter.FastCounter";
 static const char __pyx_k_pyx_unpickle_FastCounter[] = "__pyx_unpickle_FastCounter";
 static const char __pyx_k_remove_threshold_elements[] = "remove_threshold_elements";
+static const char __pyx_k_max_items_shortterm_memory[] = "max_items_shortterm_memory";
 static const char __pyx_k_fastcounter_ShortTermMemory[] = "fastcounter.ShortTermMemory";
 static const char __pyx_k_DEFAULT_CONSOLIDATION_FREQUENCY[] = "DEFAULT_CONSOLIDATION_FREQUENCY";
 static const char __pyx_k_DEFAULT_CONSOLIDATION_THRESHOLD[] = "DEFAULT_CONSOLIDATION_THRESHOLD";
-static const char __pyx_k_Incompatible_checksums_s_vs_0xff[] = "Incompatible checksums (%s vs 0xff38a39 = (_consolidation_frequency, _iterations, counter, deletions, stm, threshold))";
+static const char __pyx_k_Incompatible_checksums_s_vs_0x59[] = "Incompatible checksums (%s vs 0x5986875 = (_consolidation_frequency, _iterations, _max_items_shortterm_memory, counter, deletions, stm, threshold))";
 static PyObject *__pyx_n_s_Counter;
 static PyObject *__pyx_n_s_DEBUG;
 static PyObject *__pyx_n_s_DEFAULT_BUCKET_SIZE;
 static PyObject *__pyx_n_s_DEFAULT_CONSOLIDATION_FREQUENCY;
 static PyObject *__pyx_n_s_DEFAULT_CONSOLIDATION_THRESHOLD;
+static PyObject *__pyx_n_s_DEFAULT_MAX_ITEMS;
 static PyObject *__pyx_n_s_FastCounter;
-static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xff;
+static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x59;
 static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_n_s_ShortTermMemory;
 static PyObject *__pyx_n_s_basicConfig;
@@ -1311,6 +1315,7 @@ static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_level;
 static PyObject *__pyx_n_s_logging;
 static PyObject *__pyx_n_s_main;
+static PyObject *__pyx_n_s_max_items_shortterm_memory;
 static PyObject *__pyx_kp_s_memory_log;
 static PyObject *__pyx_n_s_most_common;
 static PyObject *__pyx_n_s_name;
@@ -1333,29 +1338,32 @@ static PyObject *__pyx_kp_s_stringsource;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_threshold;
 static PyObject *__pyx_n_s_update;
-static int __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, int __pyx_v_consolidation_frequency, int __pyx_v_consolidation_threshold, PyObject *__pyx_v_bucket_size); /* proto */
+static int __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, int __pyx_v_consolidation_frequency, int __pyx_v_consolidation_threshold, int __pyx_v_bucket_size, int __pyx_v_max_items_shortterm_memory); /* proto */
 static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, PyObject *__pyx_v_elements); /* proto */
 static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_4most_common(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, PyObject *__pyx_v_k); /* proto */
 static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_6elements(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_8_remove_elements(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, PyObject *__pyx_v_count); /* proto */
 static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolidate(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self); /* proto */
-static Py_ssize_t __pyx_pf_11fastcounter_11FastCounter_11FastCounter_12__len__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_cython__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_16__setstate_cython__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_12get_size_shortterm_memory(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self); /* proto */
+static Py_ssize_t __pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__len__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_16__reduce_cython__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_18__setstate_cython__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_11fastcounter_11FastCounter___pyx_unpickle_FastCounter(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_tp_new_11fastcounter_11FastCounter_FastCounter(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_5;
 static PyObject *__pyx_int_1000;
-static PyObject *__pyx_int_267618873;
-static PyObject *__pyx_k_;
+static PyObject *__pyx_int_1000000;
+static PyObject *__pyx_int_93874293;
+static int __pyx_k_;
 static int __pyx_k__2;
 static int __pyx_k__3;
-static PyObject *__pyx_tuple__4;
-static PyObject *__pyx_codeobj__5;
+static int __pyx_k__4;
+static PyObject *__pyx_tuple__5;
+static PyObject *__pyx_codeobj__6;
 /* Late includes */
 
-/* "fastcounter/FastCounter.pyx":22
- *     cdef int threshold
+/* "fastcounter/FastCounter.pyx":23
+ *     cdef int _max_items_shortterm_memory
  * 
  *     def __init__(self,             # <<<<<<<<<<<<<<
  *                  int consolidation_frequency=DEFAULT_CONSOLIDATION_FREQUENCY,
@@ -1367,7 +1375,8 @@ static int __pyx_pw_11fastcounter_11FastCounter_11FastCounter_1__init__(PyObject
 static int __pyx_pw_11fastcounter_11FastCounter_11FastCounter_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_consolidation_frequency;
   int __pyx_v_consolidation_threshold;
-  PyObject *__pyx_v_bucket_size = 0;
+  int __pyx_v_bucket_size;
+  int __pyx_v_max_items_shortterm_memory;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1375,13 +1384,14 @@ static int __pyx_pw_11fastcounter_11FastCounter_11FastCounter_1__init__(PyObject
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_consolidation_frequency,&__pyx_n_s_consolidation_threshold,&__pyx_n_s_bucket_size,0};
-    PyObject* values[3] = {0,0,0};
-    values[2] = __pyx_k_;
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_consolidation_frequency,&__pyx_n_s_consolidation_threshold,&__pyx_n_s_bucket_size,&__pyx_n_s_max_items_shortterm_memory,0};
+    PyObject* values[4] = {0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
         case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
         CYTHON_FALLTHROUGH;
         case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
@@ -1410,12 +1420,20 @@ static int __pyx_pw_11fastcounter_11FastCounter_11FastCounter_1__init__(PyObject
           PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_bucket_size);
           if (value) { values[2] = value; kw_args--; }
         }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_max_items_shortterm_memory);
+          if (value) { values[3] = value; kw_args--; }
+        }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 22, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 23, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
         case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
         CYTHON_FALLTHROUGH;
         case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
@@ -1427,33 +1445,42 @@ static int __pyx_pw_11fastcounter_11FastCounter_11FastCounter_1__init__(PyObject
       }
     }
     if (values[0]) {
-      __pyx_v_consolidation_frequency = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_consolidation_frequency == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L3_error)
+      __pyx_v_consolidation_frequency = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_consolidation_frequency == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L3_error)
     } else {
-      __pyx_v_consolidation_frequency = __pyx_k__2;
+      __pyx_v_consolidation_frequency = __pyx_k_;
     }
     if (values[1]) {
-      __pyx_v_consolidation_threshold = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_consolidation_threshold == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L3_error)
+      __pyx_v_consolidation_threshold = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_consolidation_threshold == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L3_error)
     } else {
-      __pyx_v_consolidation_threshold = __pyx_k__3;
+      __pyx_v_consolidation_threshold = __pyx_k__2;
     }
-    __pyx_v_bucket_size = values[2];
+    if (values[2]) {
+      __pyx_v_bucket_size = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_bucket_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L3_error)
+    } else {
+      __pyx_v_bucket_size = __pyx_k__3;
+    }
+    if (values[3]) {
+      __pyx_v_max_items_shortterm_memory = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_max_items_shortterm_memory == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 27, __pyx_L3_error)
+    } else {
+      __pyx_v_max_items_shortterm_memory = __pyx_k__4;
+    }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 22, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 23, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("fastcounter.FastCounter.FastCounter.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(((struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *)__pyx_v_self), __pyx_v_consolidation_frequency, __pyx_v_consolidation_threshold, __pyx_v_bucket_size);
+  __pyx_r = __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(((struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *)__pyx_v_self), __pyx_v_consolidation_frequency, __pyx_v_consolidation_threshold, __pyx_v_bucket_size, __pyx_v_max_items_shortterm_memory);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, int __pyx_v_consolidation_frequency, int __pyx_v_consolidation_threshold, PyObject *__pyx_v_bucket_size) {
+static int __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, int __pyx_v_consolidation_frequency, int __pyx_v_consolidation_threshold, int __pyx_v_bucket_size, int __pyx_v_max_items_shortterm_memory) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1464,14 +1491,14 @@ static int __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "fastcounter/FastCounter.pyx":27
- *                  bucket_size=DEFAULT_BUCKET_SIZE):
+  /* "fastcounter/FastCounter.pyx":29
+ *                  int max_items_shortterm_memory=DEFAULT_MAX_ITEMS):
  * 
  *         self.counter = Counter()             # <<<<<<<<<<<<<<
  *         self.stm = ShortTermMemory(threshold=consolidation_threshold,
  *                                    bucket_size=bucket_size)  #behaves like collections.Counter object
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Counter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Counter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -1485,7 +1512,7 @@ static int __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(struct __
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_GIVEREF(__pyx_t_1);
@@ -1494,39 +1521,42 @@ static int __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(struct __
   __pyx_v_self->counter = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "fastcounter/FastCounter.pyx":28
+  /* "fastcounter/FastCounter.pyx":30
  * 
  *         self.counter = Counter()
  *         self.stm = ShortTermMemory(threshold=consolidation_threshold,             # <<<<<<<<<<<<<<
  *                                    bucket_size=bucket_size)  #behaves like collections.Counter object
  *         self.deletions = 0
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ShortTermMemory); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ShortTermMemory); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_consolidation_threshold); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_consolidation_threshold); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_threshold, __pyx_t_3) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_threshold, __pyx_t_3) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "fastcounter/FastCounter.pyx":29
+  /* "fastcounter/FastCounter.pyx":31
  *         self.counter = Counter()
  *         self.stm = ShortTermMemory(threshold=consolidation_threshold,
  *                                    bucket_size=bucket_size)  #behaves like collections.Counter object             # <<<<<<<<<<<<<<
  *         self.deletions = 0
  * 
  */
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_bucket_size, __pyx_v_bucket_size) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_bucket_size); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_bucket_size, __pyx_t_3) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "fastcounter/FastCounter.pyx":28
+  /* "fastcounter/FastCounter.pyx":30
  * 
  *         self.counter = Counter()
  *         self.stm = ShortTermMemory(threshold=consolidation_threshold,             # <<<<<<<<<<<<<<
  *                                    bucket_size=bucket_size)  #behaves like collections.Counter object
  *         self.deletions = 0
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -1536,26 +1566,35 @@ static int __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(struct __
   __pyx_v_self->stm = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "fastcounter/FastCounter.pyx":30
+  /* "fastcounter/FastCounter.pyx":32
  *         self.stm = ShortTermMemory(threshold=consolidation_threshold,
  *                                    bucket_size=bucket_size)  #behaves like collections.Counter object
  *         self.deletions = 0             # <<<<<<<<<<<<<<
  * 
- *         self._consolidation_frequency = consolidation_frequency
+ *         self._max_items_shortterm_memory = max_items_shortterm_memory
  */
   __pyx_v_self->deletions = 0;
 
-  /* "fastcounter/FastCounter.pyx":32
+  /* "fastcounter/FastCounter.pyx":34
  *         self.deletions = 0
  * 
+ *         self._max_items_shortterm_memory = max_items_shortterm_memory             # <<<<<<<<<<<<<<
+ *         self._consolidation_frequency = consolidation_frequency
+ *         self._iterations = 0
+ */
+  __pyx_v_self->_max_items_shortterm_memory = __pyx_v_max_items_shortterm_memory;
+
+  /* "fastcounter/FastCounter.pyx":35
+ * 
+ *         self._max_items_shortterm_memory = max_items_shortterm_memory
  *         self._consolidation_frequency = consolidation_frequency             # <<<<<<<<<<<<<<
  *         self._iterations = 0
  * 
  */
   __pyx_v_self->_consolidation_frequency = __pyx_v_consolidation_frequency;
 
-  /* "fastcounter/FastCounter.pyx":33
- * 
+  /* "fastcounter/FastCounter.pyx":36
+ *         self._max_items_shortterm_memory = max_items_shortterm_memory
  *         self._consolidation_frequency = consolidation_frequency
  *         self._iterations = 0             # <<<<<<<<<<<<<<
  * 
@@ -1563,8 +1602,8 @@ static int __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(struct __
  */
   __pyx_v_self->_iterations = 0;
 
-  /* "fastcounter/FastCounter.pyx":22
- *     cdef int threshold
+  /* "fastcounter/FastCounter.pyx":23
+ *     cdef int _max_items_shortterm_memory
  * 
  *     def __init__(self,             # <<<<<<<<<<<<<<
  *                  int consolidation_frequency=DEFAULT_CONSOLIDATION_FREQUENCY,
@@ -1585,7 +1624,7 @@ static int __pyx_pf_11fastcounter_11FastCounter_11FastCounter___init__(struct __
   return __pyx_r;
 }
 
-/* "fastcounter/FastCounter.pyx":35
+/* "fastcounter/FastCounter.pyx":38
  *         self._iterations = 0
  * 
  *     def update(self, elements):             # <<<<<<<<<<<<<<
@@ -1624,7 +1663,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("update", 0);
 
-  /* "fastcounter/FastCounter.pyx":36
+  /* "fastcounter/FastCounter.pyx":39
  * 
  *     def update(self, elements):
  *         for element in elements:             # <<<<<<<<<<<<<<
@@ -1635,26 +1674,26 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
     __pyx_t_1 = __pyx_v_elements; __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
     __pyx_t_3 = NULL;
   } else {
-    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_elements); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_elements); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_3)) {
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 36, __pyx_L1_error)
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 39, __pyx_L1_error)
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 39, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       } else {
         if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 36, __pyx_L1_error)
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 39, __pyx_L1_error)
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 39, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       }
@@ -1664,7 +1703,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 36, __pyx_L1_error)
+          else __PYX_ERR(0, 39, __pyx_L1_error)
         }
         break;
       }
@@ -1673,27 +1712,27 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
     __Pyx_XDECREF_SET(__pyx_v_element, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "fastcounter/FastCounter.pyx":38
+    /* "fastcounter/FastCounter.pyx":41
  *         for element in elements:
  *             # check first if it is already consolidated
  *             if element in self.counter:             # <<<<<<<<<<<<<<
  *                 self.counter.update([element])
  *             else:
  */
-    __pyx_t_5 = (__Pyx_PySequence_ContainsTF(__pyx_v_element, __pyx_v_self->counter, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_5 = (__Pyx_PySequence_ContainsTF(__pyx_v_element, __pyx_v_self->counter, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 41, __pyx_L1_error)
     __pyx_t_6 = (__pyx_t_5 != 0);
     if (__pyx_t_6) {
 
-      /* "fastcounter/FastCounter.pyx":39
+      /* "fastcounter/FastCounter.pyx":42
  *             # check first if it is already consolidated
  *             if element in self.counter:
  *                 self.counter.update([element])             # <<<<<<<<<<<<<<
  *             else:
  *                 self.stm.update([element])
  */
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->counter, __pyx_n_s_update); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 39, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->counter, __pyx_n_s_update); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 42, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 39, __pyx_L1_error)
+      __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 42, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_INCREF(__pyx_v_element);
       __Pyx_GIVEREF(__pyx_v_element);
@@ -1711,12 +1750,12 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
       __pyx_t_4 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_9, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8);
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 39, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 42, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "fastcounter/FastCounter.pyx":38
+      /* "fastcounter/FastCounter.pyx":41
  *         for element in elements:
  *             # check first if it is already consolidated
  *             if element in self.counter:             # <<<<<<<<<<<<<<
@@ -1726,7 +1765,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
       goto __pyx_L5;
     }
 
-    /* "fastcounter/FastCounter.pyx":41
+    /* "fastcounter/FastCounter.pyx":44
  *                 self.counter.update([element])
  *             else:
  *                 self.stm.update([element])             # <<<<<<<<<<<<<<
@@ -1734,9 +1773,9 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
  *             if self._iterations % self._consolidation_frequency == 0:
  */
     /*else*/ {
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->stm, __pyx_n_s_update); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 41, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->stm, __pyx_n_s_update); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 44, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 41, __pyx_L1_error)
+      __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 44, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_INCREF(__pyx_v_element);
       __Pyx_GIVEREF(__pyx_v_element);
@@ -1754,14 +1793,14 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
       __pyx_t_4 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_9, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8);
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 44, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
     __pyx_L5:;
 
-    /* "fastcounter/FastCounter.pyx":42
+    /* "fastcounter/FastCounter.pyx":45
  *             else:
  *                 self.stm.update([element])
  *             self._iterations += 1             # <<<<<<<<<<<<<<
@@ -1770,7 +1809,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
  */
     __pyx_v_self->_iterations = (__pyx_v_self->_iterations + 1);
 
-    /* "fastcounter/FastCounter.pyx":43
+    /* "fastcounter/FastCounter.pyx":46
  *                 self.stm.update([element])
  *             self._iterations += 1
  *             if self._iterations % self._consolidation_frequency == 0:             # <<<<<<<<<<<<<<
@@ -1779,19 +1818,19 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
  */
     if (unlikely(__pyx_v_self->_consolidation_frequency == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-      __PYX_ERR(0, 43, __pyx_L1_error)
+      __PYX_ERR(0, 46, __pyx_L1_error)
     }
     __pyx_t_6 = ((__Pyx_mod_int(__pyx_v_self->_iterations, __pyx_v_self->_consolidation_frequency) == 0) != 0);
     if (__pyx_t_6) {
 
-      /* "fastcounter/FastCounter.pyx":44
+      /* "fastcounter/FastCounter.pyx":47
  *             self._iterations += 1
  *             if self._iterations % self._consolidation_frequency == 0:
  *                 self._consolidate()             # <<<<<<<<<<<<<<
  * 
  *     #TODO derive from collections.counter
  */
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_consolidate); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 44, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_consolidate); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 47, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __pyx_t_8 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -1805,12 +1844,12 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
       }
       __pyx_t_4 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 44, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 47, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "fastcounter/FastCounter.pyx":43
+      /* "fastcounter/FastCounter.pyx":46
  *                 self.stm.update([element])
  *             self._iterations += 1
  *             if self._iterations % self._consolidation_frequency == 0:             # <<<<<<<<<<<<<<
@@ -1819,7 +1858,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
  */
     }
 
-    /* "fastcounter/FastCounter.pyx":36
+    /* "fastcounter/FastCounter.pyx":39
  * 
  *     def update(self, elements):
  *         for element in elements:             # <<<<<<<<<<<<<<
@@ -1829,7 +1868,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "fastcounter/FastCounter.pyx":35
+  /* "fastcounter/FastCounter.pyx":38
  *         self._iterations = 0
  * 
  *     def update(self, elements):             # <<<<<<<<<<<<<<
@@ -1855,7 +1894,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_2update(stru
   return __pyx_r;
 }
 
-/* "fastcounter/FastCounter.pyx":47
+/* "fastcounter/FastCounter.pyx":50
  * 
  *     #TODO derive from collections.counter
  *     def most_common(self, k):             # <<<<<<<<<<<<<<
@@ -1887,7 +1926,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_4most_common
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("most_common", 0);
 
-  /* "fastcounter/FastCounter.pyx":48
+  /* "fastcounter/FastCounter.pyx":51
  *     #TODO derive from collections.counter
  *     def most_common(self, k):
  *         return self.counter.most_common(k)             # <<<<<<<<<<<<<<
@@ -1895,7 +1934,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_4most_common
  *     #TODO derive from collections.counter
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->counter, __pyx_n_s_most_common); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->counter, __pyx_n_s_most_common); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1909,14 +1948,14 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_4most_common
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_k) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_k);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "fastcounter/FastCounter.pyx":47
+  /* "fastcounter/FastCounter.pyx":50
  * 
  *     #TODO derive from collections.counter
  *     def most_common(self, k):             # <<<<<<<<<<<<<<
@@ -1937,7 +1976,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_4most_common
   return __pyx_r;
 }
 
-/* "fastcounter/FastCounter.pyx":51
+/* "fastcounter/FastCounter.pyx":54
  * 
  *     #TODO derive from collections.counter
  *     def elements(self):             # <<<<<<<<<<<<<<
@@ -1969,7 +2008,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_6elements(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("elements", 0);
 
-  /* "fastcounter/FastCounter.pyx":52
+  /* "fastcounter/FastCounter.pyx":55
  *     #TODO derive from collections.counter
  *     def elements(self):
  *         return self.counter.elements()             # <<<<<<<<<<<<<<
@@ -1977,7 +2016,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_6elements(st
  *     def _remove_elements(self, count):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->counter, __pyx_n_s_elements); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->counter, __pyx_n_s_elements); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1991,14 +2030,14 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_6elements(st
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "fastcounter/FastCounter.pyx":51
+  /* "fastcounter/FastCounter.pyx":54
  * 
  *     #TODO derive from collections.counter
  *     def elements(self):             # <<<<<<<<<<<<<<
@@ -2019,7 +2058,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_6elements(st
   return __pyx_r;
 }
 
-/* "fastcounter/FastCounter.pyx":54
+/* "fastcounter/FastCounter.pyx":57
  *         return self.counter.elements()
  * 
  *     def _remove_elements(self, count):             # <<<<<<<<<<<<<<
@@ -2052,30 +2091,30 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_8_remove_ele
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_remove_elements", 0);
 
-  /* "fastcounter/FastCounter.pyx":55
+  /* "fastcounter/FastCounter.pyx":58
  * 
  *     def _remove_elements(self, count):
  *         self.deletions += count             # <<<<<<<<<<<<<<
  *         self.stm.remove_least_common(count)
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->deletions); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->deletions); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_t_1, __pyx_v_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_t_1, __pyx_v_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_self->deletions = __pyx_t_3;
 
-  /* "fastcounter/FastCounter.pyx":56
+  /* "fastcounter/FastCounter.pyx":59
  *     def _remove_elements(self, count):
  *         self.deletions += count
  *         self.stm.remove_least_common(count)             # <<<<<<<<<<<<<<
  * 
  *     def _consolidate(self):
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->stm, __pyx_n_s_remove_least_common); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->stm, __pyx_n_s_remove_least_common); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -2089,12 +2128,12 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_8_remove_ele
   }
   __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_4, __pyx_v_count) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_count);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "fastcounter/FastCounter.pyx":54
+  /* "fastcounter/FastCounter.pyx":57
  *         return self.counter.elements()
  * 
  *     def _remove_elements(self, count):             # <<<<<<<<<<<<<<
@@ -2117,7 +2156,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_8_remove_ele
   return __pyx_r;
 }
 
-/* "fastcounter/FastCounter.pyx":58
+/* "fastcounter/FastCounter.pyx":61
  *         self.stm.remove_least_common(count)
  * 
  *     def _consolidate(self):             # <<<<<<<<<<<<<<
@@ -2142,6 +2181,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
   PyObject *__pyx_v_threshold_elements = NULL;
   PyObject *__pyx_v_element = NULL;
   PyObject *__pyx_v_count = NULL;
+  Py_ssize_t __pyx_v_count_overflow_items;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2152,19 +2192,20 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
   PyObject *(*__pyx_t_8)(PyObject *);
+  int __pyx_t_9;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_consolidate", 0);
 
-  /* "fastcounter/FastCounter.pyx":59
+  /* "fastcounter/FastCounter.pyx":62
  * 
  *     def _consolidate(self):
  *         threshold_elements = self.stm.get_threshold_elements()             # <<<<<<<<<<<<<<
  * 
  *         for element, count in threshold_elements:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->stm, __pyx_n_s_get_threshold_elements); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->stm, __pyx_n_s_get_threshold_elements); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -2178,13 +2219,13 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_threshold_elements = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "fastcounter/FastCounter.pyx":61
+  /* "fastcounter/FastCounter.pyx":64
  *         threshold_elements = self.stm.get_threshold_elements()
  * 
  *         for element, count in threshold_elements:             # <<<<<<<<<<<<<<
@@ -2195,26 +2236,26 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
     __pyx_t_1 = __pyx_v_threshold_elements; __Pyx_INCREF(__pyx_t_1); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
   } else {
-    __pyx_t_4 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_threshold_elements); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_4 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_threshold_elements); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_5 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_5)) {
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 61, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 64, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_4 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 61, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 64, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -2224,7 +2265,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 61, __pyx_L1_error)
+          else __PYX_ERR(0, 64, __pyx_L1_error)
         }
         break;
       }
@@ -2236,7 +2277,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 61, __pyx_L1_error)
+        __PYX_ERR(0, 64, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -2249,15 +2290,15 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
       __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_6);
       #else
-      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       #endif
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_7 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __pyx_t_7 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 64, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_8 = Py_TYPE(__pyx_t_7)->tp_iternext;
@@ -2265,7 +2306,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
       __Pyx_GOTREF(__pyx_t_3);
       index = 1; __pyx_t_6 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_6)) goto __pyx_L5_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
       __pyx_t_8 = NULL;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       goto __pyx_L6_unpacking_done;
@@ -2273,7 +2314,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 61, __pyx_L1_error)
+      __PYX_ERR(0, 64, __pyx_L1_error)
       __pyx_L6_unpacking_done:;
     }
     __Pyx_XDECREF_SET(__pyx_v_element, __pyx_t_3);
@@ -2281,16 +2322,16 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
     __Pyx_XDECREF_SET(__pyx_v_count, __pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "fastcounter/FastCounter.pyx":62
+    /* "fastcounter/FastCounter.pyx":65
  * 
  *         for element, count in threshold_elements:
  *             self.counter[element] = count             # <<<<<<<<<<<<<<
  *         self.stm.remove_threshold_elements()
  * 
  */
-    if (unlikely(PyObject_SetItem(__pyx_v_self->counter, __pyx_v_element, __pyx_v_count) < 0)) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_v_self->counter, __pyx_v_element, __pyx_v_count) < 0)) __PYX_ERR(0, 65, __pyx_L1_error)
 
-    /* "fastcounter/FastCounter.pyx":61
+    /* "fastcounter/FastCounter.pyx":64
  *         threshold_elements = self.stm.get_threshold_elements()
  * 
  *         for element, count in threshold_elements:             # <<<<<<<<<<<<<<
@@ -2300,14 +2341,14 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "fastcounter/FastCounter.pyx":63
+  /* "fastcounter/FastCounter.pyx":66
  *         for element, count in threshold_elements:
  *             self.counter[element] = count
  *         self.stm.remove_threshold_elements()             # <<<<<<<<<<<<<<
  * 
- *     def __len__(self):
+ *         count_overflow_items = len(self.stm) - self._max_items_shortterm_memory
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->stm, __pyx_n_s_remove_threshold_elements); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->stm, __pyx_n_s_remove_threshold_elements); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -2321,12 +2362,73 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
   }
   __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "fastcounter/FastCounter.pyx":58
+  /* "fastcounter/FastCounter.pyx":68
+ *         self.stm.remove_threshold_elements()
+ * 
+ *         count_overflow_items = len(self.stm) - self._max_items_shortterm_memory             # <<<<<<<<<<<<<<
+ *         if count_overflow_items > 0:
+ *             self.stm.remove_least_common(count_overflow_items)
+ */
+  __pyx_t_1 = __pyx_v_self->stm;
+  __Pyx_INCREF(__pyx_t_1);
+  __pyx_t_4 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 68, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_count_overflow_items = (__pyx_t_4 - __pyx_v_self->_max_items_shortterm_memory);
+
+  /* "fastcounter/FastCounter.pyx":69
+ * 
+ *         count_overflow_items = len(self.stm) - self._max_items_shortterm_memory
+ *         if count_overflow_items > 0:             # <<<<<<<<<<<<<<
+ *             self.stm.remove_least_common(count_overflow_items)
+ * 
+ */
+  __pyx_t_9 = ((__pyx_v_count_overflow_items > 0) != 0);
+  if (__pyx_t_9) {
+
+    /* "fastcounter/FastCounter.pyx":70
+ *         count_overflow_items = len(self.stm) - self._max_items_shortterm_memory
+ *         if count_overflow_items > 0:
+ *             self.stm.remove_least_common(count_overflow_items)             # <<<<<<<<<<<<<<
+ * 
+ *     def get_size_shortterm_memory(self):
+ */
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->stm, __pyx_n_s_remove_least_common); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_6 = PyInt_FromSsize_t(__pyx_v_count_overflow_items); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_3 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+      }
+    }
+    __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "fastcounter/FastCounter.pyx":69
+ * 
+ *         count_overflow_items = len(self.stm) - self._max_items_shortterm_memory
+ *         if count_overflow_items > 0:             # <<<<<<<<<<<<<<
+ *             self.stm.remove_least_common(count_overflow_items)
+ * 
+ */
+  }
+
+  /* "fastcounter/FastCounter.pyx":61
  *         self.stm.remove_least_common(count)
  * 
  *     def _consolidate(self):             # <<<<<<<<<<<<<<
@@ -2354,27 +2456,95 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_10_consolida
   return __pyx_r;
 }
 
-/* "fastcounter/FastCounter.pyx":65
- *         self.stm.remove_threshold_elements()
+/* "fastcounter/FastCounter.pyx":72
+ *             self.stm.remove_least_common(count_overflow_items)
  * 
- *     def __len__(self):             # <<<<<<<<<<<<<<
- *         return len(self.counter)
+ *     def get_size_shortterm_memory(self):             # <<<<<<<<<<<<<<
+ *         return len(self.stm)
+ * 
  */
 
 /* Python wrapper */
-static Py_ssize_t __pyx_pw_11fastcounter_11FastCounter_11FastCounter_13__len__(PyObject *__pyx_v_self); /*proto*/
-static Py_ssize_t __pyx_pw_11fastcounter_11FastCounter_11FastCounter_13__len__(PyObject *__pyx_v_self) {
-  Py_ssize_t __pyx_r;
+static PyObject *__pyx_pw_11fastcounter_11FastCounter_11FastCounter_13get_size_shortterm_memory(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_11fastcounter_11FastCounter_11FastCounter_13get_size_shortterm_memory(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__len__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11fastcounter_11FastCounter_11FastCounter_12__len__(((struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *)__pyx_v_self));
+  __Pyx_RefNannySetupContext("get_size_shortterm_memory (wrapper)", 0);
+  __pyx_r = __pyx_pf_11fastcounter_11FastCounter_11FastCounter_12get_size_shortterm_memory(((struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static Py_ssize_t __pyx_pf_11fastcounter_11FastCounter_11FastCounter_12__len__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self) {
+static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_12get_size_shortterm_memory(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  Py_ssize_t __pyx_t_2;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("get_size_shortterm_memory", 0);
+
+  /* "fastcounter/FastCounter.pyx":73
+ * 
+ *     def get_size_shortterm_memory(self):
+ *         return len(self.stm)             # <<<<<<<<<<<<<<
+ * 
+ *     def __len__(self):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_v_self->stm;
+  __Pyx_INCREF(__pyx_t_1);
+  __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "fastcounter/FastCounter.pyx":72
+ *             self.stm.remove_least_common(count_overflow_items)
+ * 
+ *     def get_size_shortterm_memory(self):             # <<<<<<<<<<<<<<
+ *         return len(self.stm)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("fastcounter.FastCounter.FastCounter.get_size_shortterm_memory", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "fastcounter/FastCounter.pyx":75
+ *         return len(self.stm)
+ * 
+ *     def __len__(self):             # <<<<<<<<<<<<<<
+ *         return len(self.counter)
+ */
+
+/* Python wrapper */
+static Py_ssize_t __pyx_pw_11fastcounter_11FastCounter_11FastCounter_15__len__(PyObject *__pyx_v_self); /*proto*/
+static Py_ssize_t __pyx_pw_11fastcounter_11FastCounter_11FastCounter_15__len__(PyObject *__pyx_v_self) {
+  Py_ssize_t __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__len__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__len__(((struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static Py_ssize_t __pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__len__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self) {
   Py_ssize_t __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2384,20 +2554,20 @@ static Py_ssize_t __pyx_pf_11fastcounter_11FastCounter_11FastCounter_12__len__(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__len__", 0);
 
-  /* "fastcounter/FastCounter.pyx":66
+  /* "fastcounter/FastCounter.pyx":76
  * 
  *     def __len__(self):
  *         return len(self.counter)             # <<<<<<<<<<<<<<
  */
   __pyx_t_1 = __pyx_v_self->counter;
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   goto __pyx_L0;
 
-  /* "fastcounter/FastCounter.pyx":65
- *         self.stm.remove_threshold_elements()
+  /* "fastcounter/FastCounter.pyx":75
+ *         return len(self.stm)
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
  *         return len(self.counter)
@@ -2420,19 +2590,19 @@ static Py_ssize_t __pyx_pf_11fastcounter_11FastCounter_11FastCounter_12__len__(s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11fastcounter_11FastCounter_11FastCounter_15__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_11fastcounter_11FastCounter_11FastCounter_15__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_11fastcounter_11FastCounter_11FastCounter_17__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_11fastcounter_11FastCounter_11FastCounter_17__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_cython__(((struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *)__pyx_v_self));
+  __pyx_r = __pyx_pf_11fastcounter_11FastCounter_11FastCounter_16__reduce_cython__(((struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_cython__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self) {
+static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_16__reduce_cython__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -2443,9 +2613,10 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_c
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
-  int __pyx_t_6;
+  PyObject *__pyx_t_6 = NULL;
   int __pyx_t_7;
   int __pyx_t_8;
+  int __pyx_t_9;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2454,7 +2625,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_c
   /* "(tree fragment)":5
  *     cdef object _dict
  *     cdef bint use_setstate
- *     state = (self._consolidation_frequency, self._iterations, self.counter, self.deletions, self.stm, self.threshold)             # <<<<<<<<<<<<<<
+ *     state = (self._consolidation_frequency, self._iterations, self._max_items_shortterm_memory, self.counter, self.deletions, self.stm, self.threshold)             # <<<<<<<<<<<<<<
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:
  */
@@ -2462,55 +2633,60 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_c
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->_iterations); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->deletions); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->_max_items_shortterm_memory); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->threshold); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->deletions); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyTuple_New(6); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->threshold); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = PyTuple_New(7); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_3);
   __Pyx_INCREF(__pyx_v_self->counter);
   __Pyx_GIVEREF(__pyx_v_self->counter);
-  PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_self->counter);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_5, 3, __pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_v_self->counter);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_6, 4, __pyx_t_4);
   __Pyx_INCREF(__pyx_v_self->stm);
   __Pyx_GIVEREF(__pyx_v_self->stm);
-  PyTuple_SET_ITEM(__pyx_t_5, 4, __pyx_v_self->stm);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_5, 5, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_6, 5, __pyx_v_self->stm);
+  __Pyx_GIVEREF(__pyx_t_5);
+  PyTuple_SET_ITEM(__pyx_t_6, 6, __pyx_t_5);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
-  __pyx_v_state = ((PyObject*)__pyx_t_5);
   __pyx_t_5 = 0;
+  __pyx_v_state = ((PyObject*)__pyx_t_6);
+  __pyx_t_6 = 0;
 
   /* "(tree fragment)":6
  *     cdef bint use_setstate
- *     state = (self._consolidation_frequency, self._iterations, self.counter, self.deletions, self.stm, self.threshold)
+ *     state = (self._consolidation_frequency, self._iterations, self._max_items_shortterm_memory, self.counter, self.deletions, self.stm, self.threshold)
  *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
  *     if _dict is not None:
  *         state += (_dict,)
  */
-  __pyx_t_5 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 6, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_v__dict = __pyx_t_5;
-  __pyx_t_5 = 0;
+  __pyx_t_6 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 6, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_v__dict = __pyx_t_6;
+  __pyx_t_6 = 0;
 
   /* "(tree fragment)":7
- *     state = (self._consolidation_frequency, self._iterations, self.counter, self.deletions, self.stm, self.threshold)
+ *     state = (self._consolidation_frequency, self._iterations, self._max_items_shortterm_memory, self.counter, self.deletions, self.stm, self.threshold)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
  *         use_setstate = True
  */
-  __pyx_t_6 = (__pyx_v__dict != Py_None);
-  __pyx_t_7 = (__pyx_t_6 != 0);
-  if (__pyx_t_7) {
+  __pyx_t_7 = (__pyx_v__dict != Py_None);
+  __pyx_t_8 = (__pyx_t_7 != 0);
+  if (__pyx_t_8) {
 
     /* "(tree fragment)":8
  *     _dict = getattr(self, '__dict__', None)
@@ -2519,16 +2695,16 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_c
  *         use_setstate = True
  *     else:
  */
-    __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = PyTuple_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 8, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
     __Pyx_INCREF(__pyx_v__dict);
     __Pyx_GIVEREF(__pyx_v__dict);
-    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v__dict);
-    __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_4));
-    __pyx_t_4 = 0;
+    PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_v__dict);
+    __pyx_t_5 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 8, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_5));
+    __pyx_t_5 = 0;
 
     /* "(tree fragment)":9
  *     if _dict is not None:
@@ -2540,7 +2716,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_c
     __pyx_v_use_setstate = 1;
 
     /* "(tree fragment)":7
- *     state = (self._consolidation_frequency, self._iterations, self.counter, self.deletions, self.stm, self.threshold)
+ *     state = (self._consolidation_frequency, self._iterations, self._max_items_shortterm_memory, self.counter, self.deletions, self.stm, self.threshold)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
@@ -2554,21 +2730,21 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_c
  *     else:
  *         use_setstate = self.counter is not None or self.stm is not None             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_FastCounter, (type(self), 0xff38a39, None), state
+ *         return __pyx_unpickle_FastCounter, (type(self), 0x5986875, None), state
  */
   /*else*/ {
-    __pyx_t_6 = (__pyx_v_self->counter != Py_None);
-    __pyx_t_8 = (__pyx_t_6 != 0);
-    if (!__pyx_t_8) {
+    __pyx_t_7 = (__pyx_v_self->counter != Py_None);
+    __pyx_t_9 = (__pyx_t_7 != 0);
+    if (!__pyx_t_9) {
     } else {
-      __pyx_t_7 = __pyx_t_8;
+      __pyx_t_8 = __pyx_t_9;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_8 = (__pyx_v_self->stm != Py_None);
-    __pyx_t_6 = (__pyx_t_8 != 0);
-    __pyx_t_7 = __pyx_t_6;
+    __pyx_t_9 = (__pyx_v_self->stm != Py_None);
+    __pyx_t_7 = (__pyx_t_9 != 0);
+    __pyx_t_8 = __pyx_t_7;
     __pyx_L4_bool_binop_done:;
-    __pyx_v_use_setstate = __pyx_t_7;
+    __pyx_v_use_setstate = __pyx_t_8;
   }
   __pyx_L3:;
 
@@ -2576,89 +2752,89 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_c
  *     else:
  *         use_setstate = self.counter is not None or self.stm is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_FastCounter, (type(self), 0xff38a39, None), state
+ *         return __pyx_unpickle_FastCounter, (type(self), 0x5986875, None), state
  *     else:
  */
-  __pyx_t_7 = (__pyx_v_use_setstate != 0);
-  if (__pyx_t_7) {
+  __pyx_t_8 = (__pyx_v_use_setstate != 0);
+  if (__pyx_t_8) {
 
     /* "(tree fragment)":13
  *         use_setstate = self.counter is not None or self.stm is not None
  *     if use_setstate:
- *         return __pyx_unpickle_FastCounter, (type(self), 0xff38a39, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_FastCounter, (type(self), 0x5986875, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_FastCounter, (type(self), 0xff38a39, state)
+ *         return __pyx_unpickle_FastCounter, (type(self), 0x5986875, state)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pyx_unpickle_FastCounter); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_pyx_unpickle_FastCounter); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = PyTuple_New(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_5, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_267618873);
-    __Pyx_GIVEREF(__pyx_int_267618873);
-    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_int_267618873);
+    PyTuple_SET_ITEM(__pyx_t_6, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_93874293);
+    __Pyx_GIVEREF(__pyx_int_93874293);
+    PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_int_93874293);
     __Pyx_INCREF(Py_None);
     __Pyx_GIVEREF(Py_None);
-    PyTuple_SET_ITEM(__pyx_t_5, 2, Py_None);
-    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GIVEREF(__pyx_t_4);
-    PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_6, 2, Py_None);
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5);
+    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5);
+    __Pyx_GIVEREF(__pyx_t_6);
+    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_v_state);
-    __pyx_t_4 = 0;
+    PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_v_state);
     __pyx_t_5 = 0;
-    __pyx_r = __pyx_t_3;
-    __pyx_t_3 = 0;
+    __pyx_t_6 = 0;
+    __pyx_r = __pyx_t_4;
+    __pyx_t_4 = 0;
     goto __pyx_L0;
 
     /* "(tree fragment)":12
  *     else:
  *         use_setstate = self.counter is not None or self.stm is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_FastCounter, (type(self), 0xff38a39, None), state
+ *         return __pyx_unpickle_FastCounter, (type(self), 0x5986875, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_FastCounter, (type(self), 0xff38a39, None), state
+ *         return __pyx_unpickle_FastCounter, (type(self), 0x5986875, None), state
  *     else:
- *         return __pyx_unpickle_FastCounter, (type(self), 0xff38a39, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_FastCounter, (type(self), 0x5986875, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_FastCounter__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_pyx_unpickle_FastCounter); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pyx_unpickle_FastCounter); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_6 = PyTuple_New(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_5, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_267618873);
-    __Pyx_GIVEREF(__pyx_int_267618873);
-    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_int_267618873);
+    PyTuple_SET_ITEM(__pyx_t_6, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_93874293);
+    __Pyx_GIVEREF(__pyx_int_93874293);
+    PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_int_93874293);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_state);
-    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3);
-    __Pyx_GIVEREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_5);
-    __pyx_t_3 = 0;
-    __pyx_t_5 = 0;
-    __pyx_r = __pyx_t_4;
+    PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_v_state);
+    __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_GIVEREF(__pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
+    __Pyx_GIVEREF(__pyx_t_6);
+    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_6);
     __pyx_t_4 = 0;
+    __pyx_t_6 = 0;
+    __pyx_r = __pyx_t_5;
+    __pyx_t_5 = 0;
     goto __pyx_L0;
   }
 
@@ -2675,6 +2851,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_c
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
   __Pyx_AddTraceback("fastcounter.FastCounter.FastCounter.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -2687,25 +2864,25 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_14__reduce_c
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_FastCounter, (type(self), 0xff38a39, state)
+ *         return __pyx_unpickle_FastCounter, (type(self), 0x5986875, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_FastCounter__set_state(self, __pyx_state)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11fastcounter_11FastCounter_11FastCounter_17__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_11fastcounter_11FastCounter_11FastCounter_17__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_11fastcounter_11FastCounter_11FastCounter_19__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_11fastcounter_11FastCounter_11FastCounter_19__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_11fastcounter_11FastCounter_11FastCounter_16__setstate_cython__(((struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_11fastcounter_11FastCounter_11FastCounter_18__setstate_cython__(((struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_16__setstate_cython__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_18__setstate_cython__(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2715,7 +2892,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_16__setstate
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle_FastCounter, (type(self), 0xff38a39, state)
+ *         return __pyx_unpickle_FastCounter, (type(self), 0x5986875, state)
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_FastCounter__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
@@ -2726,7 +2903,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter_11FastCounter_16__setstate
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_FastCounter, (type(self), 0xff38a39, state)
+ *         return __pyx_unpickle_FastCounter, (type(self), 0x5986875, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_FastCounter__set_state(self, __pyx_state)
  */
@@ -2845,18 +3022,18 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter___pyx_unpickle_FastCounter
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xff38a39:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0x5986875:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xff38a39 = (_consolidation_frequency, _iterations, counter, deletions, stm, threshold))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x5986875 = (_consolidation_frequency, _iterations, _max_items_shortterm_memory, counter, deletions, stm, threshold))" % __pyx_checksum)
  */
-  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0xff38a39) != 0);
+  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0x5986875) != 0);
   if (__pyx_t_1) {
 
     /* "(tree fragment)":5
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xff38a39:
+ *     if __pyx_checksum != 0x5986875:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xff38a39 = (_consolidation_frequency, _iterations, counter, deletions, stm, threshold))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x5986875 = (_consolidation_frequency, _iterations, _max_items_shortterm_memory, counter, deletions, stm, threshold))" % __pyx_checksum)
  *     __pyx_result = FastCounter.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
@@ -2875,15 +3052,15 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter___pyx_unpickle_FastCounter
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":6
- *     if __pyx_checksum != 0xff38a39:
+ *     if __pyx_checksum != 0x5986875:
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xff38a39 = (_consolidation_frequency, _iterations, counter, deletions, stm, threshold))" % __pyx_checksum)             # <<<<<<<<<<<<<<
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x5986875 = (_consolidation_frequency, _iterations, _max_items_shortterm_memory, counter, deletions, stm, threshold))" % __pyx_checksum)             # <<<<<<<<<<<<<<
  *     __pyx_result = FastCounter.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0xff, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0x59, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_INCREF(__pyx_v___pyx_PickleError);
@@ -2910,15 +3087,15 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter___pyx_unpickle_FastCounter
     /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xff38a39:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0x5986875:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xff38a39 = (_consolidation_frequency, _iterations, counter, deletions, stm, threshold))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x5986875 = (_consolidation_frequency, _iterations, _max_items_shortterm_memory, counter, deletions, stm, threshold))" % __pyx_checksum)
  */
   }
 
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xff38a39 = (_consolidation_frequency, _iterations, counter, deletions, stm, threshold))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x5986875 = (_consolidation_frequency, _iterations, _max_items_shortterm_memory, counter, deletions, stm, threshold))" % __pyx_checksum)
  *     __pyx_result = FastCounter.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
  *         __pyx_unpickle_FastCounter__set_state(<FastCounter> __pyx_result, __pyx_state)
@@ -2944,7 +3121,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter___pyx_unpickle_FastCounter
   __pyx_t_3 = 0;
 
   /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xff38a39 = (_consolidation_frequency, _iterations, counter, deletions, stm, threshold))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x5986875 = (_consolidation_frequency, _iterations, _max_items_shortterm_memory, counter, deletions, stm, threshold))" % __pyx_checksum)
  *     __pyx_result = FastCounter.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_FastCounter__set_state(<FastCounter> __pyx_result, __pyx_state)
@@ -2967,7 +3144,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter___pyx_unpickle_FastCounter
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xff38a39 = (_consolidation_frequency, _iterations, counter, deletions, stm, threshold))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x5986875 = (_consolidation_frequency, _iterations, _max_items_shortterm_memory, counter, deletions, stm, threshold))" % __pyx_checksum)
  *     __pyx_result = FastCounter.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_FastCounter__set_state(<FastCounter> __pyx_result, __pyx_state)
@@ -2980,7 +3157,7 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter___pyx_unpickle_FastCounter
  *         __pyx_unpickle_FastCounter__set_state(<FastCounter> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
  * cdef __pyx_unpickle_FastCounter__set_state(FastCounter __pyx_result, tuple __pyx_state):
- *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result.counter = __pyx_state[2]; __pyx_result.deletions = __pyx_state[3]; __pyx_result.stm = __pyx_state[4]; __pyx_result.threshold = __pyx_state[5]
+ *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result._max_items_shortterm_memory = __pyx_state[2]; __pyx_result.counter = __pyx_state[3]; __pyx_result.deletions = __pyx_state[4]; __pyx_result.stm = __pyx_state[5]; __pyx_result.threshold = __pyx_state[6]
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v___pyx_result);
@@ -3013,8 +3190,8 @@ static PyObject *__pyx_pf_11fastcounter_11FastCounter___pyx_unpickle_FastCounter
  *         __pyx_unpickle_FastCounter__set_state(<FastCounter> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_FastCounter__set_state(FastCounter __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result.counter = __pyx_state[2]; __pyx_result.deletions = __pyx_state[3]; __pyx_result.stm = __pyx_state[4]; __pyx_result.threshold = __pyx_state[5]
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result._max_items_shortterm_memory = __pyx_state[2]; __pyx_result.counter = __pyx_state[3]; __pyx_result.deletions = __pyx_state[4]; __pyx_result.stm = __pyx_state[5]; __pyx_result.threshold = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
  */
 
 static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter__set_state(struct __pyx_obj_11fastcounter_11FastCounter_FastCounter *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
@@ -3037,9 +3214,9 @@ static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter_
   /* "(tree fragment)":12
  *     return __pyx_result
  * cdef __pyx_unpickle_FastCounter__set_state(FastCounter __pyx_result, tuple __pyx_state):
- *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result.counter = __pyx_state[2]; __pyx_result.deletions = __pyx_state[3]; __pyx_result.stm = __pyx_state[4]; __pyx_result.threshold = __pyx_state[5]             # <<<<<<<<<<<<<<
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[6])
+ *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result._max_items_shortterm_memory = __pyx_state[2]; __pyx_result.counter = __pyx_state[3]; __pyx_result.deletions = __pyx_state[4]; __pyx_result.stm = __pyx_state[5]; __pyx_result.threshold = __pyx_state[6]             # <<<<<<<<<<<<<<
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[7])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -3065,6 +3242,15 @@ static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter_
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v___pyx_result->_max_items_shortterm_memory = __pyx_t_2;
+  if (unlikely(__pyx_v___pyx_state == Py_None)) {
+    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+    __PYX_ERR(1, 12, __pyx_L1_error)
+  }
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->counter);
   __Pyx_DECREF(__pyx_v___pyx_result->counter);
@@ -3074,7 +3260,7 @@ static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter_
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3083,7 +3269,7 @@ static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter_
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 5, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->stm);
@@ -3094,7 +3280,7 @@ static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter_
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 5, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 6, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3102,16 +3288,16 @@ static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter_
 
   /* "(tree fragment)":13
  * cdef __pyx_unpickle_FastCounter__set_state(FastCounter __pyx_result, tuple __pyx_state):
- *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result.counter = __pyx_state[2]; __pyx_result.deletions = __pyx_state[3]; __pyx_result.stm = __pyx_state[4]; __pyx_result.threshold = __pyx_state[5]
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[6])
+ *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result._max_items_shortterm_memory = __pyx_state[2]; __pyx_result.counter = __pyx_state[3]; __pyx_result.deletions = __pyx_state[4]; __pyx_result.stm = __pyx_state[5]; __pyx_result.threshold = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[7])
  */
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
     __PYX_ERR(1, 13, __pyx_L1_error)
   }
   __pyx_t_4 = PyTuple_GET_SIZE(__pyx_v___pyx_state); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(1, 13, __pyx_L1_error)
-  __pyx_t_5 = ((__pyx_t_4 > 6) != 0);
+  __pyx_t_5 = ((__pyx_t_4 > 7) != 0);
   if (__pyx_t_5) {
   } else {
     __pyx_t_3 = __pyx_t_5;
@@ -3124,9 +3310,9 @@ static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter_
   if (__pyx_t_3) {
 
     /* "(tree fragment)":14
- *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result.counter = __pyx_state[2]; __pyx_result.deletions = __pyx_state[3]; __pyx_result.stm = __pyx_state[4]; __pyx_result.threshold = __pyx_state[5]
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
- *         __pyx_result.__dict__.update(__pyx_state[6])             # <<<<<<<<<<<<<<
+ *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result._max_items_shortterm_memory = __pyx_state[2]; __pyx_result.counter = __pyx_state[3]; __pyx_result.deletions = __pyx_state[4]; __pyx_result.stm = __pyx_state[5]; __pyx_result.threshold = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
+ *         __pyx_result.__dict__.update(__pyx_state[7])             # <<<<<<<<<<<<<<
  */
     __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v___pyx_result), __pyx_n_s_dict); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
@@ -3137,7 +3323,7 @@ static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter_
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
       __PYX_ERR(1, 14, __pyx_L1_error)
     }
-    __pyx_t_7 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 6, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 14, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 7, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 14, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_9 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -3159,9 +3345,9 @@ static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter_
 
     /* "(tree fragment)":13
  * cdef __pyx_unpickle_FastCounter__set_state(FastCounter __pyx_result, tuple __pyx_state):
- *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result.counter = __pyx_state[2]; __pyx_result.deletions = __pyx_state[3]; __pyx_result.stm = __pyx_state[4]; __pyx_result.threshold = __pyx_state[5]
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
- *         __pyx_result.__dict__.update(__pyx_state[6])
+ *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result._max_items_shortterm_memory = __pyx_state[2]; __pyx_result.counter = __pyx_state[3]; __pyx_result.deletions = __pyx_state[4]; __pyx_result.stm = __pyx_state[5]; __pyx_result.threshold = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
+ *         __pyx_result.__dict__.update(__pyx_state[7])
  */
   }
 
@@ -3169,8 +3355,8 @@ static PyObject *__pyx_f_11fastcounter_11FastCounter___pyx_unpickle_FastCounter_
  *         __pyx_unpickle_FastCounter__set_state(<FastCounter> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_FastCounter__set_state(FastCounter __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result.counter = __pyx_state[2]; __pyx_result.deletions = __pyx_state[3]; __pyx_result.stm = __pyx_state[4]; __pyx_result.threshold = __pyx_state[5]
- *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
+ *     __pyx_result._consolidation_frequency = __pyx_state[0]; __pyx_result._iterations = __pyx_state[1]; __pyx_result._max_items_shortterm_memory = __pyx_state[2]; __pyx_result.counter = __pyx_state[3]; __pyx_result.deletions = __pyx_state[4]; __pyx_result.stm = __pyx_state[5]; __pyx_result.threshold = __pyx_state[6]
+ *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
  */
 
   /* function exit code */
@@ -3247,13 +3433,14 @@ static PyMethodDef __pyx_methods_11fastcounter_11FastCounter_FastCounter[] = {
   {"elements", (PyCFunction)__pyx_pw_11fastcounter_11FastCounter_11FastCounter_7elements, METH_NOARGS, 0},
   {"_remove_elements", (PyCFunction)__pyx_pw_11fastcounter_11FastCounter_11FastCounter_9_remove_elements, METH_O, 0},
   {"_consolidate", (PyCFunction)__pyx_pw_11fastcounter_11FastCounter_11FastCounter_11_consolidate, METH_NOARGS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_11fastcounter_11FastCounter_11FastCounter_15__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_11fastcounter_11FastCounter_11FastCounter_17__setstate_cython__, METH_O, 0},
+  {"get_size_shortterm_memory", (PyCFunction)__pyx_pw_11fastcounter_11FastCounter_11FastCounter_13get_size_shortterm_memory, METH_NOARGS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_11fastcounter_11FastCounter_11FastCounter_17__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_11fastcounter_11FastCounter_11FastCounter_19__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
 static PySequenceMethods __pyx_tp_as_sequence_FastCounter = {
-  __pyx_pw_11fastcounter_11FastCounter_11FastCounter_13__len__, /*sq_length*/
+  __pyx_pw_11fastcounter_11FastCounter_11FastCounter_15__len__, /*sq_length*/
   0, /*sq_concat*/
   0, /*sq_repeat*/
   0, /*sq_item*/
@@ -3266,7 +3453,7 @@ static PySequenceMethods __pyx_tp_as_sequence_FastCounter = {
 };
 
 static PyMappingMethods __pyx_tp_as_mapping_FastCounter = {
-  __pyx_pw_11fastcounter_11FastCounter_11FastCounter_13__len__, /*mp_length*/
+  __pyx_pw_11fastcounter_11FastCounter_11FastCounter_15__len__, /*mp_length*/
   0, /*mp_subscript*/
   0, /*mp_ass_subscript*/
 };
@@ -3391,8 +3578,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_DEFAULT_BUCKET_SIZE, __pyx_k_DEFAULT_BUCKET_SIZE, sizeof(__pyx_k_DEFAULT_BUCKET_SIZE), 0, 0, 1, 1},
   {&__pyx_n_s_DEFAULT_CONSOLIDATION_FREQUENCY, __pyx_k_DEFAULT_CONSOLIDATION_FREQUENCY, sizeof(__pyx_k_DEFAULT_CONSOLIDATION_FREQUENCY), 0, 0, 1, 1},
   {&__pyx_n_s_DEFAULT_CONSOLIDATION_THRESHOLD, __pyx_k_DEFAULT_CONSOLIDATION_THRESHOLD, sizeof(__pyx_k_DEFAULT_CONSOLIDATION_THRESHOLD), 0, 0, 1, 1},
+  {&__pyx_n_s_DEFAULT_MAX_ITEMS, __pyx_k_DEFAULT_MAX_ITEMS, sizeof(__pyx_k_DEFAULT_MAX_ITEMS), 0, 0, 1, 1},
   {&__pyx_n_s_FastCounter, __pyx_k_FastCounter, sizeof(__pyx_k_FastCounter), 0, 0, 1, 1},
-  {&__pyx_kp_s_Incompatible_checksums_s_vs_0xff, __pyx_k_Incompatible_checksums_s_vs_0xff, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xff), 0, 0, 1, 0},
+  {&__pyx_kp_s_Incompatible_checksums_s_vs_0x59, __pyx_k_Incompatible_checksums_s_vs_0x59, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x59), 0, 0, 1, 0},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_ShortTermMemory, __pyx_k_ShortTermMemory, sizeof(__pyx_k_ShortTermMemory), 0, 0, 1, 1},
   {&__pyx_n_s_basicConfig, __pyx_k_basicConfig, sizeof(__pyx_k_basicConfig), 0, 0, 1, 1},
@@ -3413,6 +3601,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_level, __pyx_k_level, sizeof(__pyx_k_level), 0, 0, 1, 1},
   {&__pyx_n_s_logging, __pyx_k_logging, sizeof(__pyx_k_logging), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
+  {&__pyx_n_s_max_items_shortterm_memory, __pyx_k_max_items_shortterm_memory, sizeof(__pyx_k_max_items_shortterm_memory), 0, 0, 1, 1},
   {&__pyx_kp_s_memory_log, __pyx_k_memory_log, sizeof(__pyx_k_memory_log), 0, 0, 1, 0},
   {&__pyx_n_s_most_common, __pyx_k_most_common, sizeof(__pyx_k_most_common), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
@@ -3450,10 +3639,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_tuple__4 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__4);
-  __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_FastCounter, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__5);
+  __Pyx_GIVEREF(__pyx_tuple__5);
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_FastCounter, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3465,7 +3654,8 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_int_5 = PyInt_FromLong(5); if (unlikely(!__pyx_int_5)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1000 = PyInt_FromLong(1000); if (unlikely(!__pyx_int_1000)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_267618873 = PyInt_FromLong(267618873L); if (unlikely(!__pyx_int_267618873)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_1000000 = PyInt_FromLong(1000000L); if (unlikely(!__pyx_int_1000000)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_93874293 = PyInt_FromLong(93874293L); if (unlikely(!__pyx_int_93874293)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3850,7 +4040,7 @@ if (!__Pyx_RefNanny) {
  * DEFAULT_CONSOLIDATION_THRESHOLD = 5  # How often does the pattern need to be detected in order to be placed into Long Term Memory
  * DEFAULT_BUCKET_SIZE = 5             # <<<<<<<<<<<<<<
  * DEFAULT_CONSOLIDATION_FREQUENCY = 1000
- * 
+ * DEFAULT_MAX_ITEMS = 1000000
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_DEFAULT_BUCKET_SIZE, __pyx_int_5) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
 
@@ -3858,58 +4048,80 @@ if (!__Pyx_RefNanny) {
  * DEFAULT_CONSOLIDATION_THRESHOLD = 5  # How often does the pattern need to be detected in order to be placed into Long Term Memory
  * DEFAULT_BUCKET_SIZE = 5
  * DEFAULT_CONSOLIDATION_FREQUENCY = 1000             # <<<<<<<<<<<<<<
- * 
+ * DEFAULT_MAX_ITEMS = 1000000
  * DEBUG = False
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_DEFAULT_CONSOLIDATION_FREQUENCY, __pyx_int_1000) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
 
+  /* "fastcounter/FastCounter.pyx":10
+ * DEFAULT_BUCKET_SIZE = 5
+ * DEFAULT_CONSOLIDATION_FREQUENCY = 1000
+ * DEFAULT_MAX_ITEMS = 1000000             # <<<<<<<<<<<<<<
+ * DEBUG = False
+ * 
+ */
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_DEFAULT_MAX_ITEMS, __pyx_int_1000000) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+
   /* "fastcounter/FastCounter.pyx":11
  * DEFAULT_CONSOLIDATION_FREQUENCY = 1000
- * 
+ * DEFAULT_MAX_ITEMS = 1000000
  * DEBUG = False             # <<<<<<<<<<<<<<
  * 
  * # TODO set upper limit for number of items in long term memory
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_DEBUG, Py_False) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
 
-  /* "fastcounter/FastCounter.pyx":23
+  /* "fastcounter/FastCounter.pyx":24
  * 
  *     def __init__(self,
  *                  int consolidation_frequency=DEFAULT_CONSOLIDATION_FREQUENCY,             # <<<<<<<<<<<<<<
  *                  int consolidation_threshold=DEFAULT_CONSOLIDATION_THRESHOLD,
- *                  bucket_size=DEFAULT_BUCKET_SIZE):
+ *                  int bucket_size=DEFAULT_BUCKET_SIZE,
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DEFAULT_CONSOLIDATION_FREQUENCY); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_k__2 = __pyx_t_5;
-
-  /* "fastcounter/FastCounter.pyx":24
- *     def __init__(self,
- *                  int consolidation_frequency=DEFAULT_CONSOLIDATION_FREQUENCY,
- *                  int consolidation_threshold=DEFAULT_CONSOLIDATION_THRESHOLD,             # <<<<<<<<<<<<<<
- *                  bucket_size=DEFAULT_BUCKET_SIZE):
- * 
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DEFAULT_CONSOLIDATION_THRESHOLD); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DEFAULT_CONSOLIDATION_FREQUENCY); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_k__3 = __pyx_t_5;
+  __pyx_k_ = __pyx_t_5;
 
   /* "fastcounter/FastCounter.pyx":25
+ *     def __init__(self,
+ *                  int consolidation_frequency=DEFAULT_CONSOLIDATION_FREQUENCY,
+ *                  int consolidation_threshold=DEFAULT_CONSOLIDATION_THRESHOLD,             # <<<<<<<<<<<<<<
+ *                  int bucket_size=DEFAULT_BUCKET_SIZE,
+ *                  int max_items_shortterm_memory=DEFAULT_MAX_ITEMS):
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DEFAULT_CONSOLIDATION_THRESHOLD); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_k__2 = __pyx_t_5;
+
+  /* "fastcounter/FastCounter.pyx":26
  *                  int consolidation_frequency=DEFAULT_CONSOLIDATION_FREQUENCY,
  *                  int consolidation_threshold=DEFAULT_CONSOLIDATION_THRESHOLD,
- *                  bucket_size=DEFAULT_BUCKET_SIZE):             # <<<<<<<<<<<<<<
+ *                  int bucket_size=DEFAULT_BUCKET_SIZE,             # <<<<<<<<<<<<<<
+ *                  int max_items_shortterm_memory=DEFAULT_MAX_ITEMS):
+ * 
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DEFAULT_BUCKET_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_k__3 = __pyx_t_5;
+
+  /* "fastcounter/FastCounter.pyx":27
+ *                  int consolidation_threshold=DEFAULT_CONSOLIDATION_THRESHOLD,
+ *                  int bucket_size=DEFAULT_BUCKET_SIZE,
+ *                  int max_items_shortterm_memory=DEFAULT_MAX_ITEMS):             # <<<<<<<<<<<<<<
  * 
  *         self.counter = Counter()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DEFAULT_BUCKET_SIZE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_DEFAULT_MAX_ITEMS); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_k_ = __pyx_t_4;
-  __Pyx_GIVEREF(__pyx_t_4);
-  __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_k__4 = __pyx_t_5;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_FastCounter(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
